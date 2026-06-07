@@ -15,9 +15,12 @@
     "dev:landing": "npm run dev -w @sitio-firme/landing",
     "dev:cabanas": "npm run dev -w @sitio-firme/cabanas",
     "dev:restaurante": "npm run dev -w @sitio-firme/restaurante",
+    "dev:kinesiologia": "npm run dev -w @sitio-firme/kinesiologia",
     "build:landing": "npm run build -w @sitio-firme/landing",
     "build:cabanas": "npm run build -w @sitio-firme/cabanas",
     "build:restaurante": "npm run build -w @sitio-firme/restaurante",
-    "build:all": "npm run build:landing && npm run build:cabanas && npm run build:restaurante"
+    "build:kinesiologia": "npm run build -w @sitio-firme/kinesiologia",
+    "check:kinesiologia": "npm run check -w @sitio-firme/kinesiologia",
+    "build:all": "npm run build:landing && npm run build:cabanas && npm run build:restaurante && npm run build:kinesiologia"
   }
 }

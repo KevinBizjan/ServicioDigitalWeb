@@ -1,0 +1,30 @@
+{
+  "name": "@sitio-firme/kinesiologia",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Plantilla SitioFirme para el rubro kinesiología, con turnos online (Supabase).",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.0",
+    "@sitio-firme/base": "*",
+    "@supabase/supabase-js": "^2.45.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3"
+  }
+}

@@ -1,0 +1,57 @@
+---
+import { HORARIOS } from "../consts";
+---
+<section id="nosotros" class="bg-secondary py-20">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-2">
+    <!-- Texto -->
+    <div>
+      <h2 class="text-3xl font-bold text-primary sm:text-4xl">Nosotros</h2>
+      <p class="mt-4 text-text/80">
+        El Lic. Jorge Martínez es kinesiólogo y fisiatra con más de 15 años de
+        experiencia en rehabilitación deportiva y traumatológica en Resistencia.
+      </p>
+      <p class="mt-3 text-text/80">
+        Cada tratamiento es personalizado: evaluamos tu caso, definimos objetivos
+        claros y te acompañamos en todo el proceso de recuperación.
+      </p>
+
+      <ul class="mt-6 space-y-2 text-sm text-text/80">
+        <li class="flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Kinesiología deportiva y post-quirúrgica
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Tratamiento de columna y electroterapia
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Atención particular y obras sociales
+        </li>
+      </ul>
+
+      <p class="mt-6 text-sm font-semibold text-primary">Matrícula Profesional N.º 1234 — Chaco</p>
+
+      <div class="mt-6 rounded-xl bg-white p-4 text-sm shadow-sm">
+        <p class="font-semibold text-primary">Horarios de atención</p>
+        {HORARIOS.map((h) => (
+          <p class="mt-1 text-text/80">
+            <span class="font-medium">{h.dia}:</span> {h.horario}
+          </p>
+        ))}
+      </div>
+    </div>
+
+    <!-- Imagen -->
+    <div class="overflow-hidden rounded-2xl shadow-sm">
+      <img
+        src="https://picsum.photos/seed/60/800/600"
+        alt="Consultorio de Kinesiología Martínez"
+        width="800"
+        height="600"
+        loading="lazy"
+        class="h-full w-full object-cover"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "@sitio-firme/base/Footer.astro";
+import Header from "../components/Header.tsx";
+import Hero from "../components/Hero.astro";
+import Servicios from "../components/Servicios.astro";
+import SistemaTurnos from "../components/SistemaTurnos.tsx";
+import Nosotros from "../components/Nosotros.astro";
+import ContactForm from "../components/ContactForm.tsx";
+import Mapa from "../components/Mapa.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.tsx";
+import { NEGOCIO } from "../consts";
+
+const links = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Turnos", href: "#turnos" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Contacto", href: "#contacto" },
+];
+
+const redes = [
+  { tipo: "facebook" as const, href: "#" },
+  { tipo: "instagram" as const, href: "#" },
+];
+---
+<Layout
+  title="Kinesiología Martínez — Resistencia, Chaco"
+  description="Kinesiología y rehabilitación profesional en Resistencia, Chaco. Turnos online: deportiva, post-quirúrgica, columna, drenaje y más."
+>
+  <Header client:load />
+  <Hero />
+  <Servicios />
+  <SistemaTurnos client:visible />
+  <Nosotros />
+  <ContactForm client:visible />
+  <Mapa />
+  <Footer nombre={NEGOCIO.nombre} links={links} redes={redes} />
+  <WhatsAppFloat client:load />
+</Layout>

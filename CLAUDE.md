@@ -70,6 +70,10 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
 - [x] plantillas/cabanas/ completa (Don Ramón) — build ✅
 - [x] plantillas/restaurante/ completa (Don Jorge) — build ✅
 - [x] _base/SEOHead.astro: schemaType como prop, default LocalBusiness
+- [x] plantillas/kinesiologia/ completa con Supabase — build ✅
+- [x] RPC horas_ocupadas() en Supabase (SECURITY DEFINER)
+- [x] src/lib/supabase.ts patrón establecido para futuros rubros
+- [x] src/types.ts patrón establecido
 
 ### Pendiente
 - [ ] Landing de SitioFirme
@@ -100,3 +104,12 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   veterinaria → VeterinaryCare, kinesiologia → MedicalBusiness
 - Menu.tsx con tabs por categoría es el patrón para cualquier
   listado con filtro (servicios, productos, turnos disponibles
+
+  ## Supabase kinesio
+- Proyecto: sitiofirme-kinesiologia
+- URL: https://mnehhamflwifvuqzfobr.supabase.co
+- Tabla: turnos (id, nombre, email, telefono, fecha, hora,
+  servicio, mensaje, estado, created_at)
+- RPC: horas_ocupadas(p_fecha date) → setof text
+- RLS: INSERT público, SELECT denegado, RPC con SECURITY DEFINER
+- .env.local nunca se commitea, credenciales guardadas aparte

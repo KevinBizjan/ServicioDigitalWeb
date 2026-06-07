@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kinesiologiamartinez.com.ar/sitemap.xml

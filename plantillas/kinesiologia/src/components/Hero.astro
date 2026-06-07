@@ -1,0 +1,40 @@
+---
+import { urlWhatsApp, WHATSAPP_CONSULTA } from "../consts";
+
+const consultaHref = urlWhatsApp(WHATSAPP_CONSULTA);
+---
+<section id="inicio" class="relative flex min-h-screen items-center justify-center overflow-hidden">
+  {/* Imagen de fondo como img absoluta para cumplir width/height/loading lazy */}
+  <img
+    src="https://picsum.photos/seed/50/1600/900"
+    alt="Kinesiología Martínez"
+    width="1600"
+    height="900"
+    loading="lazy"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+  <div class="absolute inset-0 bg-primary/90"></div>
+
+  <div class="relative z-10 mx-auto max-w-3xl px-6 text-center text-secondary">
+    <h1 class="text-4xl font-bold sm:text-5xl md:text-6xl">Kinesiología Martínez</h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg opacity-90 sm:text-xl">
+      Rehabilitación profesional en Resistencia. Turnos online disponibles.
+    </p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a
+        href="#turnos"
+        class="inline-block rounded-full bg-accent px-8 py-3 font-semibold text-white shadow-lg transition hover:brightness-110"
+      >
+        Sacar turno
+      </a>
+      <a
+        href={consultaHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block rounded-full border-2 border-secondary px-8 py-3 font-semibold text-secondary transition hover:bg-secondary hover:text-primary"
+      >
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
