@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "@sitio-firme/base/Footer.astro";
+import Header from "../components/Header.tsx";
+import Hero from "../components/Hero.astro";
+import Servicios from "../components/Servicios.astro";
+import Galeria from "../components/Galeria.tsx";
+import Tarifas from "../components/Tarifas.astro";
+import ContactForm from "../components/ContactForm.tsx";
+import Mapa from "../components/Mapa.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.tsx";
+import { NEGOCIO } from "../consts";
+
+const links = [
+  { label: "Servicios", href: "#servicios" },
+  { label: "Galería", href: "#galeria" },
+  { label: "Tarifas", href: "#tarifas" },
+  { label: "Contacto", href: "#contacto" },
+];
+
+const redes = [
+  { tipo: "facebook" as const, href: "#" },
+  { tipo: "instagram" as const, href: "#" },
+];
+---
+<Layout
+  title="Cabañas Don Ramón — Villa Ángela, Chaco"
+  description="Cabañas para 2 a 6 personas en Villa Ángela, Chaco. Pileta, parrilla cubierta, WiFi y mascotas permitidas. Tu refugio en el Chaco."
+>
+  <Header client:load />
+  <Hero />
+  <Servicios />
+  <Galeria client:visible />
+  <Tarifas />
+  <ContactForm client:visible />
+  <Mapa />
+  <Footer nombre={NEGOCIO.nombre} links={links} redes={redes} />
+  <WhatsAppFloat client:load />
+</Layout>

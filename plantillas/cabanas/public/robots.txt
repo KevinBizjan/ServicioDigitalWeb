@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cabanasdonramon.com.ar/sitemap.xml

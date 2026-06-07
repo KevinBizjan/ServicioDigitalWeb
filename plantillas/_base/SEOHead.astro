@@ -1,0 +1,60 @@
+---
+// Meta tags SEO + Open Graph + (opcional) schema.org LocalBusiness.
+// Pensado para incluir dentro de <head>. Los datos del negocio son opcionales:
+// si se pasa businessName se emite el JSON-LD de LocalBusiness.
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: string;
+  // Datos del negocio para schema.org LocalBusiness (opcionales).
+  businessName?: string;
+  phone?: string;
+  address?: string;
+  email?: string;
+  // Tipo de schema.org (LodgingBusiness, Restaurant, VeterinaryCare, etc.).
+  schemaType?: string;
+}
+
+const {
+  title,
+  description = "",
+  image = "https://picsum.photos/seed/10/1200/630",
+  url = "",
+  type = "website",
+  businessName,
+  phone,
+  address,
+  email,
+  schemaType = "LocalBusiness",
+} = Astro.props;
+
+const localBusiness = businessName
+  ? {
+      "@context": "https://schema.org",
+      "@type": schemaType,
+      name: businessName,
+      ...(description ? { description } : {}),
+      ...(phone ? { telephone: phone } : {}),
+      ...(email ? { email } : {}),
+      ...(address ? { address } : {}),
+      ...(url ? { url } : {}),
+      ...(image ? { image } : {}),
+    }
+  : null;
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:type" content={type} />
+{url && <meta property="og:url" content={url} />}
+
+{localBusiness && (
+  <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+)}

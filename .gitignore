@@ -1,0 +1,14 @@
+# dependencias
+node_modules
+
+# builds de Astro
+dist
+.astro
+
+# variables de entorno
+.env
+.env.local
+
+# logs y temporales
+*.log
+.DS_Store

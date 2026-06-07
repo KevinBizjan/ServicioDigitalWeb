@@ -1,0 +1,54 @@
+---
+import { urlWhatsApp, MENSAJE_DISPONIBILIDAD } from "../consts";
+
+const ctaHref = urlWhatsApp(MENSAJE_DISPONIBILIDAD);
+---
+<section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+  {/* Imagen de fondo como img absoluta para cumplir width/height/loading lazy */}
+  <img
+    src="https://picsum.photos/seed/10/1600/900"
+    alt="Cabañas Don Ramón rodeadas de naturaleza"
+    width="1600"
+    height="900"
+    loading="lazy"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+  <div class="absolute inset-0 bg-primary/80"></div>
+
+  <div class="relative z-10 mx-auto max-w-3xl px-6 text-center text-secondary">
+    <h1 class="text-4xl font-bold sm:text-5xl md:text-6xl">Cabañas Don Ramón</h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg opacity-90 sm:text-xl">
+      Tu refugio en el Chaco. Naturaleza, descanso y buena parrilla.
+    </p>
+    <a
+      href={ctaHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-block rounded-full bg-accent px-8 py-3 font-semibold text-primary shadow-lg transition hover:brightness-110"
+    >
+      Consultar disponibilidad
+    </a>
+  </div>
+
+  <!-- Flecha animada hacia abajo (animate-bounce de Tailwind, CSS puro) -->
+  <a
+    href="#servicios"
+    aria-label="Ir a servicios"
+    class="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-secondary"
+  >
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      class="animate-bounce"
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  </a>
+</section>

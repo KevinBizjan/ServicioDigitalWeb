@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Escanear los componentes compartidos de @sitio-firme/base para que Tailwind
+   genere sus clases. Ruta relativa a este archivo:
+   styles -> src -> restaurante -> plantillas, y entramos a _base. */
+@source "../../../_base/**/*.{astro,tsx}";
+
+@theme {
+  --color-primary: #1a0a00;
+  --color-secondary: #fdf6ec;
+  --color-accent: #c0392b;
+  --color-text: #1a1a1a;
+}

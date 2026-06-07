@@ -1,0 +1,23 @@
+{
+  "name": "sitio-firme",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Monorepo de SitioFirme: landing de la agencia + plantillas por rubro (Astro + React islands + Tailwind v4).",
+  "workspaces": [
+    "landing",
+    "plantillas/*"
+  ],
+  "overrides": {
+    "vite": "^7.3.2"
+  },
+  "scripts": {
+    "dev:landing": "npm run dev -w @sitio-firme/landing",
+    "dev:cabanas": "npm run dev -w @sitio-firme/cabanas",
+    "dev:restaurante": "npm run dev -w @sitio-firme/restaurante",
+    "build:landing": "npm run build -w @sitio-firme/landing",
+    "build:cabanas": "npm run build -w @sitio-firme/cabanas",
+    "build:restaurante": "npm run build -w @sitio-firme/restaurante",
+    "build:all": "npm run build:landing && npm run build:cabanas && npm run build:restaurante"
+  }
+}

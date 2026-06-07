@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Escanear los componentes compartidos de @sitio-firme/base para que Tailwind
+   genere sus clases. Ruta relativa a este archivo:
+   styles -> src -> cabanas -> plantillas, y entramos a _base. */
+@source "../../../_base/**/*.{astro,tsx}";
+
+@theme {
+  --color-primary: #1a3a2a;
+  --color-secondary: #f5f0e8;
+  --color-accent: #c9a84c;
+  --color-text: #1a1a1a;
+}

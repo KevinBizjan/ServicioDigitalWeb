@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "@sitio-firme/base/Footer.astro";
+import Header from "../components/Header.tsx";
+import Hero from "../components/Hero.astro";
+import Servicios from "../components/Servicios.astro";
+import Menu from "../components/Menu.tsx";
+import Reservas from "../components/Reservas.astro";
+import Galeria from "../components/Galeria.tsx";
+import ContactForm from "../components/ContactForm.tsx";
+import Mapa from "../components/Mapa.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.tsx";
+import { NEGOCIO } from "../consts";
+
+const links = [
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Menú", href: "#menu" },
+  { label: "Reservas", href: "#reservas" },
+  { label: "Galería", href: "#galeria" },
+  { label: "Contacto", href: "#contacto" },
+];
+
+const redes = [
+  { tipo: "facebook" as const, href: "#" },
+  { tipo: "instagram" as const, href: "#" },
+];
+---
+<Layout
+  title="La Parrilla de Don Jorge — Resistencia, Chaco"
+  description="Parrilla, pastas y pizzas artesanales en Resistencia, Chaco. Sabores auténticos del Chaco. Reservá tu mesa."
+>
+  <Header client:load />
+  <Hero />
+  <Servicios />
+  <Menu client:visible />
+  <Reservas />
+  <Galeria client:visible />
+  <ContactForm client:visible />
+  <Mapa />
+  <Footer nombre={NEGOCIO.nombre} links={links} redes={redes} />
+  <WhatsAppFloat client:load />
+</Layout>

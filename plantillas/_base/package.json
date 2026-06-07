@@ -1,0 +1,15 @@
+{
+  "name": "@sitio-firme/base",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Componentes compartidos entre las plantillas de SitioFirme.",
+  "exports": {
+    "./*": "./*"
+  },
+  "peerDependencies": {
+    "astro": "^6.4.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

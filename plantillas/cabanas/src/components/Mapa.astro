@@ -1,0 +1,26 @@
+---
+// Mapa embebido sin API key (output=embed).
+const query = encodeURIComponent("Villa Ángela, Chaco, Argentina");
+const src = `https://www.google.com/maps?q=${query}&output=embed`;
+---
+<section class="bg-secondary py-20">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-center text-3xl font-bold text-primary sm:text-4xl">Cómo llegar</h2>
+    <p class="mx-auto mt-3 max-w-2xl text-center text-text/70">
+      Ruta 16 km 12, Villa Ángela, Chaco.
+    </p>
+
+    <div class="mt-10 overflow-hidden rounded-2xl shadow-sm">
+      <iframe
+        title="Mapa de Cabañas Don Ramón en Villa Ángela, Chaco"
+        src={src}
+        width="100%"
+        height="450"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
