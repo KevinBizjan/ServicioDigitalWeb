@@ -21,6 +21,10 @@
     "build:restaurante": "npm run build -w @sitio-firme/restaurante",
     "build:kinesiologia": "npm run build -w @sitio-firme/kinesiologia",
     "check:kinesiologia": "npm run check -w @sitio-firme/kinesiologia",
-    "build:all": "npm run build:landing && npm run build:cabanas && npm run build:restaurante && npm run build:kinesiologia"
+    "build:all": "npm run build:landing && npm run build:cabanas && npm run build:restaurante && npm run build:kinesiologia",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.49.1"
   }
 }

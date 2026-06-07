@@ -55,8 +55,12 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
 
 - @source en global.css debe apuntar a ../../../_base/**/*.{astro,tsx}
   (no a plantillas/_base, esa ruta resuelve mal desde dentro del proyecto)
-- npm ls vite sale con exit 1 marcando "invalid": es benigno, es solo que
-  @astrojs/react@4.4.2 declara peer vite ^6 y lo forzamos a 7. No tocar.
+- @astrojs/react debe ser ^5.0.7 (línea para Astro 6 / Vite 7). NO usar 4.x
+  (Astro 5 / Vite 6): compila el build pero ROMPE la hidratación en dev
+  (react-dom/client no exporta createRoot → ningún island hidrata, botones
+  muertos). El build NO lo detecta; verificar en navegador (npm run smoke).
+- Verificación: build no ejecuta el sitio. Para hidratación correr npm run smoke
+  (smoke test headless con Chrome del sistema, scripts/smoke.mjs).
 - Scaffolding manual en vez de npm create astro (evita descargas interactivas)
 - .tsx usa className (no class) para que React no se queje
 - landing/ también necesita @source apuntando a _base porque consume
