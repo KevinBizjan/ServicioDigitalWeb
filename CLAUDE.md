@@ -72,8 +72,20 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   en las primeras plantillas porque Vite reoptimiza dependencias y la
   hidratación llega después del wait de 1500ms. No es un bug: re-correr
   npm run smoke con la caché tibia y da OK en las 4.
+- Tipografía landing/: display = Sora, cuerpo = Inter (Google Fonts via @import
+  al tope de global.css, tokens --font-display/--font-body en @theme). NO usar
+  Syne: su "g" es de un solo piso con gancho corto y se lee "cortada/plana"
+  (no es bug de CSS, es el diseño de la fuente; verificado a nivel de píxel).
+- NO aplicar gradiente al título con background-clip:text +
+  -webkit-text-fill-color:transparent: en Blink/Chrome RECORTA los descendentes
+  (la "g" sale cortada) y ni padding ni line-height lo arreglan. Para acentos de
+  color en un título usar color sólido en un <span>, nunca clip de texto.
+- landing/ animaciones de entrada: clase .animate-on-scroll + IntersectionObserver
+  inline en Layout.astro. El estado oculto (opacity:0) va scopeado a html.js, y un
+  <script is:inline> agrega .js en el <head> antes del render: sin JS el contenido
+  NUNCA queda invisible. Respetar prefers-reduced-motion (ya en global.css).
 
-  ## Estado actual del proyecto
+## Estado actual del proyecto
 
 ### Completado
 - [x] Monorepo configurado y builds verificados
@@ -87,6 +99,8 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
 - [x] src/types.ts patrón establecido
 - [x] landing/ de SitioFirme completa (agencia) — build ✅ + smoke ✅
   (Footer propio, schema ProfessionalService, sin Supabase, form Formspree)
+- [x] landing/ pase estético: Sora (display) + Inter (cuerpo), animaciones de
+      entrada al scroll con fallback no-JS, hover de cards y CTAs con gradiente
 
 ### Pendiente
 - [ ] plantillas/veterinaria/
@@ -109,7 +123,7 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   cuando haya 3+ plantillas. Por ahora el build solo es suficiente.
 - _base/ props con defaults: Footer y SEOHead funcionan sin datos
   para que landing/ siga buildeando sin modificarse.
-  - schemaType en SEOHead es prop con default LocalBusiness (genérico).
+- schemaType en SEOHead es prop con default LocalBusiness (genérico).
   Cada Layout pasa el tipo correcto explícitamente:
   cabanas → LodgingBusiness, restaurante → Restaurant,
   veterinaria → VeterinaryCare, kinesiologia → MedicalBusiness,
@@ -119,9 +133,9 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   Corrientes, Capital") sin acoplar la landing a las plantillas de clientes
   ni tener que tocar _base.
 - Menu.tsx con tabs por categoría es el patrón para cualquier
-  listado con filtro (servicios, productos, turnos disponibles
+  listado con filtro (servicios, productos, turnos disponibles).
 
-  ## Supabase kinesio
+## Supabase kinesio
 - Proyecto: sitiofirme-kinesiologia
 - URL: https://mnehhamflwifvuqzfobr.supabase.co
 - Tabla: turnos (id, nombre, email, telefono, fecha, hora,
