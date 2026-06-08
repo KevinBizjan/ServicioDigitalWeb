@@ -1,0 +1,23 @@
+---
+interface Metrica {
+  valor: string;
+  detalle: string;
+}
+
+const METRICAS: Metrica[] = [
+  { valor: "3 rubros", detalle: "disponibles hoy" },
+  { valor: "48hs", detalle: "tiempo de entrega promedio" },
+  { valor: "Local", detalle: "Corrientes y Resistencia" },
+  { valor: "100%", detalle: "sitios con soporte" },
+];
+---
+<section class="bg-accent text-white">
+  <div class="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-14 md:grid-cols-4">
+    {METRICAS.map((m) => (
+      <div class="text-center">
+        <p class="text-3xl font-bold sm:text-4xl">{m.valor}</p>
+        <p class="mt-1 text-sm text-white/80">{m.detalle}</p>
+      </div>
+    ))}
+  </div>
+</section>

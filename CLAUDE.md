@@ -63,8 +63,15 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   (smoke test headless con Chrome del sistema, scripts/smoke.mjs).
 - Scaffolding manual en vez de npm create astro (evita descargas interactivas)
 - .tsx usa className (no class) para que React no se queje
-- landing/ también necesita @source apuntando a _base porque consume
-  los componentes compartidos
+- landing/ está en la raíz (no bajo plantillas/), así que su @source apunta a
+  ../../../plantillas/_base/**, NO a ../../../_base/** como las plantillas:
+  la profundidad de carpetas es distinta. Hoy landing solo consume
+  SEOHead.astro de _base (sin clases Tailwind), así que ese @source quedó
+  inofensivo pero ya no imprescindible.
+- smoke test: la PRIMERA corrida tras un build suele fallar "header interactivo"
+  en las primeras plantillas porque Vite reoptimiza dependencias y la
+  hidratación llega después del wait de 1500ms. No es un bug: re-correr
+  npm run smoke con la caché tibia y da OK en las 4.
 
   ## Estado actual del proyecto
 
@@ -78,15 +85,15 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
 - [x] RPC horas_ocupadas() en Supabase (SECURITY DEFINER)
 - [x] src/lib/supabase.ts patrón establecido para futuros rubros
 - [x] src/types.ts patrón establecido
+- [x] landing/ de SitioFirme completa (agencia) — build ✅ + smoke ✅
+  (Footer propio, schema ProfessionalService, sin Supabase, form Formspree)
 
 ### Pendiente
-- [ ] Landing de SitioFirme
-- [ ] plantillas/restaurante/
 - [ ] plantillas/veterinaria/
-- [ ] plantillas/kinesiologia/
-- [ ] Integración Supabase
-- [ ] MercadoPago
-- [ ] Decap CMS
+- [ ] MercadoPago (tier premium, aún sin implementar)
+- [ ] Decap CMS (tier premium, aún sin implementar)
+- [ ] Reemplazar placeholders de la landing al publicar: WhatsApp 5493794966406,
+      mail bizjankevin@gmail.com, IG @sitiofirme, endpoint Formspree REEMPLAZAR
 
 ## Decisiones técnicas aprendidas
 
@@ -105,7 +112,12 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   - schemaType en SEOHead es prop con default LocalBusiness (genérico).
   Cada Layout pasa el tipo correcto explícitamente:
   cabanas → LodgingBusiness, restaurante → Restaurant,
-  veterinaria → VeterinaryCare, kinesiologia → MedicalBusiness
+  veterinaria → VeterinaryCare, kinesiologia → MedicalBusiness,
+  landing → ProfessionalService
+- landing/ tiene Footer propio (landing/src/components/Footer.astro), NO usa
+  el de _base: así personaliza textos (slogan, "© 2025 SitioFirme ·
+  Corrientes, Capital") sin acoplar la landing a las plantillas de clientes
+  ni tener que tocar _base.
 - Menu.tsx con tabs por categoría es el patrón para cualquier
   listado con filtro (servicios, productos, turnos disponibles
 

@@ -1,0 +1,37 @@
+---
+interface Paso {
+  titulo: string;
+  descripcion: string;
+}
+
+const PASOS: Paso[] = [
+  { titulo: "Nos contactás", descripcion: "Hablamos de tu negocio y qué necesitás." },
+  { titulo: "Armamos el sitio", descripcion: "En 48 horas tenés la primera versión." },
+  { titulo: "Lo revisamos juntos", descripcion: "Ajustamos hasta que quede perfecto." },
+  { titulo: "Lo publicamos", descripcion: "Online con dominio y hosting incluido." },
+];
+---
+<section class="bg-primary py-20 text-white">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-center text-3xl font-bold sm:text-4xl">Cómo trabajamos</h2>
+
+    <ol class="mt-14 flex flex-col gap-10 md:flex-row md:gap-6">
+      {PASOS.map((paso, i) => (
+        <li class="relative flex flex-1 gap-5 md:flex-col md:gap-4">
+          <div class="flex flex-col items-center md:flex-row md:gap-4">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-lg font-bold text-white">
+              {i + 1}
+            </span>
+            {i < PASOS.length - 1 && (
+              <span class="mt-2 h-full w-px bg-white/15 md:mt-0 md:h-px md:w-full" aria-hidden="true"></span>
+            )}
+          </div>
+          <div class="pb-2">
+            <h3 class="text-lg font-bold">{paso.titulo}</h3>
+            <p class="mt-1 text-sm text-white/70">{paso.descripcion}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

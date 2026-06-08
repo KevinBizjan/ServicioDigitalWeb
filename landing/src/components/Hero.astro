@@ -1,0 +1,37 @@
+---
+import { urlWhatsApp, MENSAJE_GENERAL } from "../consts";
+---
+<section class="bg-gradient-to-b from-primary to-primary/80 text-white">
+  <div class="mx-auto flex max-w-4xl flex-col items-center px-6 py-24 text-center sm:py-32">
+    <span class="mb-6 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/80">
+      Tu negocio, presente en internet
+    </span>
+
+    <h1 class="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+      Tu negocio merece estar en internet
+    </h1>
+
+    <p class="mt-6 max-w-2xl text-base text-white/70 sm:text-lg">
+      Diseñamos y desarrollamos sitios web para comercios y profesionales del
+      NEA. Con base de datos, pagos online y soporte real. Vos te ocupás de tu
+      negocio, nosotros de tu presencia digital.
+    </p>
+
+    <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+      <a
+        href="#rubros"
+        class="rounded-full bg-accent px-8 py-3 text-center font-semibold text-white transition hover:brightness-110"
+      >
+        Ver qué hacemos
+      </a>
+      <a
+        href={urlWhatsApp(MENSAJE_GENERAL)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-full border border-white/25 px-8 py-3 text-center font-semibold text-white transition hover:bg-white/10"
+      >
+        Consultar ahora
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,23 +1,29 @@
 ---
-import "../styles/global.css";
-import SEOHead from "@sitio-firme/base/SEOHead.astro";
-import Footer from "@sitio-firme/base/Footer.astro";
-import Header from "@sitio-firme/base/Header.tsx";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.tsx";
+import Hero from "../components/Hero.astro";
+import Metricas from "../components/Metricas.astro";
+import Rubros from "../components/Rubros.tsx";
+import Paquetes from "../components/Paquetes.tsx";
+import PorQueNosotros from "../components/PorQueNosotros.astro";
+import Proceso from "../components/Proceso.astro";
+import Contacto from "../components/Contacto.tsx";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.tsx";
+import { AGENCIA } from "../consts";
 ---
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <SEOHead title="SitioFirme" description="Agencia de sitios web para PyMEs del NEA." />
-  </head>
-  <body class="bg-secondary text-text">
-    <!-- Header es un island React (client:load): verifica React + import cross-package .tsx -->
-    <Header client:load />
-    <main class="mx-auto max-w-6xl p-8">
-      <h1 class="text-4xl font-bold text-primary">SitioFirme</h1>
-      <p class="mt-2 text-accent">Build de verificación — Astro + React + Tailwind v4.</p>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Layout
+  title="SitioFirme — Sitios web para comercios y profesionales del NEA"
+  description={AGENCIA.descripcion}
+>
+  <Header client:load />
+  <Hero />
+  <Metricas />
+  <Rubros client:visible />
+  <Paquetes client:visible />
+  <PorQueNosotros />
+  <Proceso />
+  <Contacto client:visible />
+  <Footer />
+  <WhatsAppFloat client:load />
+</Layout>
