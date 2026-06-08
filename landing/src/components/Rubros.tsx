@@ -15,7 +15,7 @@ export default function Rubros() {
           {RUBROS.map((caso) => (
             <article
               key={caso.seed}
-              className="overflow-hidden rounded-2xl text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
+              className="animate-on-scroll overflow-hidden rounded-2xl text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ backgroundColor: caso.color }}
             >
               <img

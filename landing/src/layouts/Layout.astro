@@ -14,6 +14,11 @@ const { title, description, image } = Astro.props;
 <!doctype html>
 <html lang="es" class="scroll-smooth">
   <head>
+    <!-- Marca JS activo antes de renderizar para que .animate-on-scroll oculte
+         el contenido solo cuando hay JS (evita quedar atrapado en opacity:0). -->
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
     <SEOHead
       title={title}
       description={description}
@@ -27,5 +32,25 @@ const { title, description, image } = Astro.props;
   </head>
   <body class="bg-secondary text-text">
     <slot />
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("visible");
+              }, i * 100);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".animate-on-scroll")
+        .forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

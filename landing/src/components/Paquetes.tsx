@@ -16,7 +16,7 @@ export default function Paquetes() {
           {PAQUETES.map((paquete) => (
             <article
               key={paquete.nombre}
-              className={`relative flex h-full flex-col rounded-2xl bg-white/5 p-8 transition ${
+              className={`animate-on-scroll relative flex h-full flex-col rounded-2xl bg-white/5 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                 paquete.destacado
                   ? "border-2 border-accent md:scale-105 md:shadow-2xl"
                   : "border border-white/10"
@@ -57,11 +57,20 @@ export default function Paquetes() {
                 href={urlWhatsApp(mensajePaquete(paquete.nombre))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 rounded-full px-6 py-3 text-center font-semibold transition hover:brightness-110 ${
+                className={`mt-8 rounded-full px-6 py-3 text-center font-semibold transition-all duration-300 ${
                   paquete.destacado
-                    ? "bg-accent text-white"
+                    ? "text-white hover:scale-[1.02]"
                     : "border border-white/25 text-white hover:bg-white/10"
                 }`}
+                style={
+                  paquete.destacado
+                    ? {
+                        backgroundImage:
+                          "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
+                        boxShadow: "0 10px 25px -5px rgba(99, 102, 241, 0.4)",
+                      }
+                    : undefined
+                }
               >
                 {paquete.cta}
               </a>
