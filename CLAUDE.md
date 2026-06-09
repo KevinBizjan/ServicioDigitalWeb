@@ -39,8 +39,10 @@ que entrego a un cliente de ese rubro.
 
 ## Convenciones de código
 - Idioma: español argentino, voseo
-- Imágenes placeholder: picsum.photos con seeds fijos, loading="lazy",
-  width y height explícitos siempre
+- Imágenes: en plantillas entregadas, fotos reales de Unsplash
+  (https://images.unsplash.com/photo-ID?w=W&h=H&fit=crop&q=80). picsum.photos
+  solo queda como placeholder genérico en _base/ hasta tener datos reales.
+  Siempre loading="lazy", width y height explícitos y alt descriptivo en español
 - WhatsApp URL: https://wa.me/549XXXXXXXXXX?text=MENSAJE_ENCODED
 - Formspree: action="https://formspree.io/f/REEMPLAZAR" visible como placeholder
 - Google Maps: iframe embed estándar, sin API key
@@ -134,6 +136,14 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   ni tener que tocar _base.
 - Menu.tsx con tabs por categoría es el patrón para cualquier
   listado con filtro (servicios, productos, turnos disponibles).
+- Imágenes Unsplash: usar el ID en formato photo-NNNNN-xxxxx (el que vive en
+  images.unsplash.com), NO el slug corto de la URL de la página (ajqDp29Pz7M):
+  ese slug no resuelve contra images.unsplash.com. Verificar cada ID con un
+  HEAD real (Invoke-WebRequest) antes de commitear: las búsquedas a veces
+  devuelven el slug pegado al id (photo-123-abc-SLUG) y rompen la imagen.
+- Galería con Unsplash: las galerías ya no usan un array de seeds numéricos;
+  usan FOTOS = [{ id, alt }] con alt individual por foto. El estado del
+  lightbox guarda el id (string) y se resuelve con FOTOS.find().
 
 ## Supabase kinesio
 - Proyecto: sitiofirme-kinesiologia

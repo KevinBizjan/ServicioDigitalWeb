@@ -4,7 +4,8 @@
       "Bash(npm run *)",
       "Bash(npm install *)",
       "PowerShell(npm run *)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "WebFetch(domain:unsplash.com)"
     ]
   }
 }
