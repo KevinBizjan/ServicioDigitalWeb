@@ -108,7 +108,7 @@ export const RUBROS: Rubro[] = [
     descripcion: "Sistema de reservas con galería y tarifas por temporada",
     color: "#1a3a2a",
     seed: 10,
-    url: "https://cabanas.sitiofirme.com.ar",
+    url: "sitiofirme-cabanas.pages.dev",
   },
   {
     nombre: "La Parrilla de Don Jorge",
@@ -116,7 +116,7 @@ export const RUBROS: Rubro[] = [
     descripcion: "Menú digital interactivo y sistema de reservas por WhatsApp",
     color: "#1a0a00",
     seed: 30,
-    url: "https://restaurante.sitiofirme.com.ar",
+    url: "sitiofirme-restaurante.pages.dev",
   },
   {
     nombre: "Kinesiología Martínez",
@@ -124,7 +124,7 @@ export const RUBROS: Rubro[] = [
     descripcion: "Turnos online en tiempo real conectados a base de datos",
     color: "#0a2540",
     seed: 50,
-    url: "https://kinesiologia.sitiofirme.com.ar",
+    url: "sitiofirme-kinesiologia.pages.dev",
   },
 ];
 
