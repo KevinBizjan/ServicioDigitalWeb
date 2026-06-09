@@ -94,20 +94,20 @@ export interface Rubro {
   rubro: string;
   descripcion: string;
   color: string;
-  seed: number;
+  // ID de Unsplash (formato photo-…): reusa el hero de cada plantilla real
+  // para que la card de la landing y el sitio entregado coincidan.
+  img: string;
   // Placeholder: reemplazar por la URL real de cada demo al deployarla.
   url: string;
 }
 
-// Los seeds coinciden con los de cada plantilla para que las imágenes
-// se vean consistentes entre la landing y los sitios reales.
 export const RUBROS: Rubro[] = [
   {
     nombre: "Cabañas Don Ramón",
     rubro: "Alojamiento",
     descripcion: "Sistema de reservas con galería y tarifas por temporada",
     color: "#1a3a2a",
-    seed: 10,
+    img: "photo-1570793005386-840846445fed",
     url: "https://sitiofirme-cabanas.pages.dev",
   },
   {
@@ -115,7 +115,7 @@ export const RUBROS: Rubro[] = [
     rubro: "Restaurante",
     descripcion: "Menú digital interactivo y sistema de reservas por WhatsApp",
     color: "#1a0a00",
-    seed: 30,
+    img: "photo-1511790596488-7331af09cbc7",
     url: "https://sitiofirme-restaurante.pages.dev",
   },
   {
@@ -123,7 +123,7 @@ export const RUBROS: Rubro[] = [
     rubro: "Salud",
     descripcion: "Turnos online en tiempo real conectados a base de datos",
     color: "#0a2540",
-    seed: 50,
+    img: "photo-1649751361457-01d3a696c7e6",
     url: "https://sitiofirme-kinesiologia.pages.dev",
   },
 ];

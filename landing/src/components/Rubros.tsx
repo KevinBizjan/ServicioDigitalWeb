@@ -14,7 +14,7 @@ export default function Rubros() {
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {RUBROS.map((caso) => (
             <a
-              key={caso.seed}
+              key={caso.img}
               href={caso.url}
               target="_blank"
               rel="noopener"
@@ -22,8 +22,8 @@ export default function Rubros() {
               style={{ backgroundColor: caso.color }}
             >
               <img
-                src={`https://picsum.photos/seed/${caso.seed}/600/400`}
-                alt={`Sitio de ${caso.nombre}`}
+                src={`https://images.unsplash.com/${caso.img}?w=600&h=400&fit=crop&q=80`}
+                alt={`Sitio web de ${caso.nombre}`}
                 width={600}
                 height={400}
                 loading="lazy"
