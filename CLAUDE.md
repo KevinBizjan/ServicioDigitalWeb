@@ -103,6 +103,11 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   (Footer propio, schema ProfessionalService, sin Supabase, form Formspree)
 - [x] landing/ pase estético: Sora (display) + Inter (cuerpo), animaciones de
       entrada al scroll con fallback no-JS, hover de cards y CTAs con gradiente
+- [x] cards de la landing (Rubros) enlazan a la demo de cada plantilla
+      (campo url en RUBROS, target=_blank); URLs placeholder pages.dev
+- [x] imágenes reales de Unsplash en las 3 plantillas + cards de la landing
+      (heroes, galerías, Nosotros). landing/ hero sigue siendo gradiente
+- [x] favicon SVG por sitio (landing + 3 plantillas), link en _base/SEOHead.astro
 
 ### Pendiente
 - [ ] plantillas/veterinaria/
@@ -144,6 +149,12 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
 - Galería con Unsplash: las galerías ya no usan un array de seeds numéricos;
   usan FOTOS = [{ id, alt }] con alt individual por foto. El estado del
   lightbox guarda el id (string) y se resuelve con FOTOS.find().
+- Favicon: el <link rel="icon" href="/favicon.svg"> vive una sola vez en
+  _base/SEOHead.astro (head compartido por los 4 sitios). Cada sitio sirve su
+  propio public/favicon.svg, así que para cambiar el logo de una pestaña se
+  reemplaza ese archivo sin tocar código. Son SVG monograma (rect + text con
+  iniciales) en los colores de la paleta del sitio. SVG favicon no anda en
+  Safari viejo; si un cliente lo necesita, sumar favicon.ico de respaldo.
 
 ## Supabase kinesio
 - Proyecto: sitiofirme-kinesiologia
