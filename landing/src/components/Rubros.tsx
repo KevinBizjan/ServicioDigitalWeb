@@ -13,9 +13,12 @@ export default function Rubros() {
 
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {RUBROS.map((caso) => (
-            <article
+            <a
               key={caso.seed}
-              className="animate-on-scroll overflow-hidden rounded-2xl text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              href={caso.url}
+              target="_blank"
+              rel="noopener"
+              className="animate-on-scroll group block overflow-hidden rounded-2xl text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:-translate-y-1 focus-visible:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               style={{ backgroundColor: caso.color }}
             >
               <img
@@ -32,8 +35,14 @@ export default function Rubros() {
                 </span>
                 <h3 className="mt-3 text-xl font-bold">{caso.nombre}</h3>
                 <p className="mt-2 text-sm text-white/80">{caso.descripcion}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-white/90">
+                  Ver sitio
+                  <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
 
