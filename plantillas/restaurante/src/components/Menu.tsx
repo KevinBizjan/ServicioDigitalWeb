@@ -35,7 +35,7 @@ export default function Menu() {
         {/* Platos */}
         <ul className="mt-10 divide-y divide-white/10">
           {categoria.platos.map((plato) => (
-            <li key={plato.nombre} className="flex items-baseline justify-between gap-4 py-4">
+            <li key={plato.nombre} className="animate-on-scroll flex items-baseline justify-between gap-4 py-4">
               <div>
                 <h3 className="font-semibold text-white">{plato.nombre}</h3>
                 <p className="mt-1 text-sm text-white/60">{plato.descripcion}</p>

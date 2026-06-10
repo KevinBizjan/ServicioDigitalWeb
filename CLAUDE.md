@@ -82,6 +82,12 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   -webkit-text-fill-color:transparent: en Blink/Chrome RECORTA los descendentes
   (la "g" sale cortada) y ni padding ni line-height lo arreglan. Para acentos de
   color en un título usar color sólido en un <span>, nunca clip de texto.
+  Matiz por descendentes (g/j/p/q/y): el clip SOLO es seguro si el texto exacto
+  del h1 no tiene ninguna. cabanas/ "Cabañas Don Ramón" no tiene → ahí se usó
+  gradiente white→gold con clip. restaurante/ "La Parrilla de Don Jorge" tiene la
+  "g" de Jorge → clip recorta, así que el acento coral va por <span> sólido. Ante
+  la duda, regla por defecto = <span> sólido. Verificar SIEMPRE el texto real,
+  no asumir.
 - landing/ animaciones de entrada: clase .animate-on-scroll + IntersectionObserver
   inline en Layout.astro. El estado oculto (opacity:0) va scopeado a html.js, y un
   <script is:inline> agrega .js en el <head> antes del render: sin JS el contenido
@@ -108,6 +114,15 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
 - [x] imágenes reales de Unsplash en las 3 plantillas + cards de la landing
       (heroes, galerías, Nosotros). landing/ hero sigue siendo gradiente
 - [x] favicon SVG por sitio (landing + 3 plantillas), link en _base/SEOHead.astro
+- [x] cabanas/ pase estético: Sora (display) + Inter (cuerpo), animaciones de
+      entrada al scroll (mismo patrón que landing), hover lift de cards, CTAs con
+      gradiente accent→amber-600 + sombra de color, Header con blur al scroll.
+      Hero h1 con gradiente white→gold por clip (seguro: "Cabañas Don Ramón" no
+      tiene descendentes) — build ✅
+- [x] restaurante/ pase estético: mismo patrón (Sora + Inter, animaciones, hover
+      lift, CTAs con gradiente accent→red-700, Header con blur). Hero h1 SIN clip:
+      acento de color con <span> sólido coral en "Don Jorge" porque la "g" es
+      descendente y el clip la recortaría — build ✅
 
 ### Pendiente
 - [ ] plantillas/veterinaria/

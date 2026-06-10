@@ -13,18 +13,23 @@ const reservaHref = urlWhatsApp(WHATSAPP_RESERVA);
     loading="lazy"
     class="absolute inset-0 h-full w-full object-cover"
   />
-  <div class="absolute inset-0 bg-primary/85"></div>
+  {/* Overlay diagonal en vez de plano: da profundidad sin tapar la foto */}
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary/70"></div>
 
   <div class="relative z-10 mx-auto max-w-3xl px-6 text-center text-secondary">
-    <h1 class="text-4xl font-bold sm:text-5xl md:text-6xl">La Parrilla de Don Jorge</h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg opacity-90 sm:text-xl">
+    {/* Acento de color con <span> sólido, NO background-clip:text: "Jorge"
+        tiene una "g" descendente que el clip recortaría en Blink/Chrome. */}
+    <h1 class="text-4xl font-bold tracking-wide sm:text-5xl md:text-6xl">
+      La Parrilla de <span style="color: #e57373;">Don Jorge</span>
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg font-light opacity-85 sm:text-xl">
       Sabores auténticos del Chaco. Parrilla, pastas y pizzas artesanales en el
       corazón de Resistencia.
     </p>
     <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
       <a
         href="#menu"
-        class="inline-block rounded-full border-2 border-secondary px-8 py-3 font-semibold text-secondary transition hover:bg-secondary hover:text-primary"
+        class="inline-block rounded-full border-2 border-secondary px-8 py-3 font-semibold text-secondary transition-all duration-300 hover:bg-secondary hover:text-primary"
       >
         Ver menú
       </a>
@@ -32,7 +37,7 @@ const reservaHref = urlWhatsApp(WHATSAPP_RESERVA);
         href={reservaHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block rounded-full bg-accent px-8 py-3 font-semibold text-white shadow-lg transition hover:brightness-110"
+        class="inline-block rounded-full bg-gradient-to-r from-accent to-red-700 px-8 py-3 font-semibold text-white shadow-[0_10px_30px_-5px_rgba(192,57,43,0.4)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_-5px_rgba(192,57,43,0.55)]"
       >
         Reservar mesa
       </a>

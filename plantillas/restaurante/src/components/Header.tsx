@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface NavLink {
   label: string;
@@ -15,9 +15,21 @@ const LINKS: NavLink[] = [
 
 export default function Header() {
   const [abierto, setAbierto] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-primary text-white">
+    <header
+      className={`sticky top-0 z-50 text-white transition-all duration-300 ${
+        scrolled ? "bg-primary/95 backdrop-blur-md shadow-lg" : "bg-primary"
+      }`}
+    >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#" className="text-lg font-bold text-accent">
           La Parrilla de Don Jorge
