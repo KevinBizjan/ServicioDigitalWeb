@@ -13,18 +13,26 @@ const ctaHref = urlWhatsApp(MENSAJE_DISPONIBILIDAD);
     loading="lazy"
     class="absolute inset-0 h-full w-full object-cover"
   />
-  <div class="absolute inset-0 bg-primary/80"></div>
+  {/* Overlay diagonal en vez de plano: da profundidad sin tapar la foto */}
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/85 to-primary/60"></div>
 
   <div class="relative z-10 mx-auto max-w-3xl px-6 text-center text-secondary">
-    <h1 class="text-4xl font-bold sm:text-5xl md:text-6xl">Cabañas Don Ramón</h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg opacity-90 sm:text-xl">
+    {/* Gradiente con background-clip:text: seguro acá porque "Cabañas Don
+        Ramón" no tiene descendentes (g/j/p/q/y), que es lo que Blink recorta. */}
+    <h1
+      class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl"
+      style="background: linear-gradient(135deg, #ffffff 0%, #d4a853 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"
+    >
+      Cabañas Don Ramón
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg font-light opacity-85 sm:text-xl">
       Tu refugio en el Chaco. Naturaleza, descanso y buena parrilla.
     </p>
     <a
       href={ctaHref}
       target="_blank"
       rel="noopener noreferrer"
-      class="mt-8 inline-block rounded-full bg-accent px-8 py-3 font-semibold text-primary shadow-lg transition hover:brightness-110"
+      class="mt-8 inline-block rounded-full bg-gradient-to-r from-accent to-amber-600 px-8 py-3 font-semibold text-primary shadow-[0_10px_30px_-5px_rgba(201,168,76,0.4)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_-5px_rgba(201,168,76,0.55)]"
     >
       Consultar disponibilidad
     </a>

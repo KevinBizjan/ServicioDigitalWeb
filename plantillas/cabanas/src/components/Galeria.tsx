@@ -28,7 +28,7 @@ export default function Galeria() {
               key={foto.id}
               type="button"
               onClick={() => setActiva(foto.id)}
-              className="group overflow-hidden rounded-xl"
+              className="animate-on-scroll group overflow-hidden rounded-xl"
               aria-label="Ampliar imagen"
             >
               <img
