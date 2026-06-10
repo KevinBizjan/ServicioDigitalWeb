@@ -92,6 +92,15 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
   inline en Layout.astro. El estado oculto (opacity:0) va scopeado a html.js, y un
   <script is:inline> agrega .js en el <head> antes del render: sin JS el contenido
   NUNCA queda invisible. Respetar prefers-reduced-motion (ya en global.css).
+- animate-on-scroll dentro de islands React: el observer agrega la clase .visible
+  por DOM, pero React NO la conoce. Solo poner animate-on-scroll en nodos cuyo
+  className sea CONSTANTE entre renders (React no reescribe el atributo si el prop
+  no cambió, así .visible sobrevive). Si el className es dinámico (p.ej. un paso
+  activo que alterna "text-accent"), en el próximo re-render React reescribe el
+  atributo y BORRA .visible → el elemento vuelve a opacity:0. En SistemaTurnos.tsx
+  por eso animate-on-scroll va en los wrappers estables (barra de progreso, card),
+  no en los <span> de cada paso. Los bloques de datos de ContactForm y las imgs de
+  Galeria sí lo llevan directo: su className es constante.
 
 ## Estado actual del proyecto
 
@@ -123,6 +132,12 @@ Listá todos los archivos que vas a crear o modificar y esperá confirmación.
       lift, CTAs con gradiente accent→red-700, Header con blur). Hero h1 SIN clip:
       acento de color con <span> sólido coral en "Don Jorge" porque la "g" es
       descendente y el clip la recortaría — build ✅
+- [x] kinesiologia/ pase estético: mismo patrón (Sora + Inter, animaciones, hover
+      lift, CTAs con gradiente accent→blue-500, Header con blur). Hero h1 SIN clip:
+      <span> sólido celeste en "Martínez" (la "g" de "Kinesiología" es descendente).
+      SistemaTurnos.tsx solo visual (barra de progreso con gradiente accent→blue-400,
+      card seleccionada con sombra accent/50, slots con hover marcado), sin tocar la
+      lógica de Supabase — build ✅
 
 ### Pendiente
 - [ ] plantillas/veterinaria/

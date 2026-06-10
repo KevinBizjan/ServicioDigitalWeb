@@ -106,7 +106,7 @@ export default function SistemaTurnos() {
         </p>
 
         {/* Barra de progreso */}
-        <div className="mt-10">
+        <div className="animate-on-scroll mt-10">
           <div className="flex justify-between text-xs font-medium text-white/70">
             {PASOS.map((label, i) => (
               <span key={label} className={i + 1 <= paso ? "text-accent" : ""}>
@@ -116,14 +116,14 @@ export default function SistemaTurnos() {
           </div>
           <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/15">
             <div
-              className="h-full rounded-full bg-accent transition-all duration-300"
+              className="h-full rounded-full bg-gradient-to-r from-accent to-blue-400 transition-all duration-300"
               style={{ width: `${(paso / 4) * 100}%` }}
             />
           </div>
           <p className="mt-2 text-right text-xs text-white/60">{paso}/4</p>
         </div>
 
-        <div className="mt-8 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+        <div className="animate-on-scroll mt-8 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
           {/* Paso 1: servicio */}
           {paso === 1 && (
             <div>
@@ -139,8 +139,8 @@ export default function SistemaTurnos() {
                       aria-pressed={activo}
                       className={
                         activo
-                          ? "rounded-xl border-2 border-accent bg-accent/10 p-4 text-left transition"
-                          : "rounded-xl border border-white/15 p-4 text-left transition hover:border-accent/60"
+                          ? "rounded-xl border-2 border-accent bg-accent/10 p-4 text-left shadow-[0_8px_24px_-4px_rgba(37,99,235,0.5)] transition-all duration-300 hover:-translate-y-1"
+                          : "rounded-xl border border-white/15 p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent/60"
                       }
                     >
                       <span className="font-semibold">{s.nombre}</span>
@@ -334,8 +334,8 @@ function SlotGrid({ titulo, slots, seleccionada, onSelect }: SlotGridProps) {
               aria-pressed={activo}
               className={
                 activo
-                  ? "rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-white transition"
-                  : "rounded-lg border border-white/20 px-3 py-2 text-sm font-semibold text-white/90 transition hover:border-accent disabled:cursor-not-allowed disabled:border-white/5 disabled:text-white/25 disabled:hover:border-white/5"
+                  ? "rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-white shadow-[0_6px_18px_-4px_rgba(37,99,235,0.6)] transition-all duration-300"
+                  : "rounded-lg border border-white/20 px-3 py-2 text-sm font-semibold text-white/90 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10 disabled:cursor-not-allowed disabled:border-white/5 disabled:text-white/25 disabled:hover:translate-y-0 disabled:hover:border-white/5 disabled:hover:bg-transparent"
               }
             >
               {slot.hora}

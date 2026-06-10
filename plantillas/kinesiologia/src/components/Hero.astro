@@ -13,17 +13,22 @@ const consultaHref = urlWhatsApp(WHATSAPP_CONSULTA);
     loading="lazy"
     class="absolute inset-0 h-full w-full object-cover"
   />
-  <div class="absolute inset-0 bg-primary/90"></div>
+  {/* Overlay diagonal en vez de plano: da profundidad sin tapar la foto */}
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary/65"></div>
 
   <div class="relative z-10 mx-auto max-w-3xl px-6 text-center text-secondary">
-    <h1 class="text-4xl font-bold sm:text-5xl md:text-6xl">Kinesiología Martínez</h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg opacity-90 sm:text-xl">
+    {/* Acento de color con <span> sólido, NO background-clip:text:
+        "Kinesiología" tiene una "g" descendente que el clip recortaría en Blink. */}
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+      Kinesiología <span style="color: #93c5fd;">Martínez</span>
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg font-light opacity-85 sm:text-xl">
       Rehabilitación profesional en Resistencia. Turnos online disponibles.
     </p>
     <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
       <a
         href="#turnos"
-        class="inline-block rounded-full bg-accent px-8 py-3 font-semibold text-white shadow-lg transition hover:brightness-110"
+        class="inline-block rounded-full bg-gradient-to-r from-accent to-blue-500 px-8 py-3 font-semibold text-white shadow-[0_10px_30px_-5px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_-5px_rgba(37,99,235,0.55)]"
       >
         Sacar turno
       </a>

@@ -82,7 +82,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={estado === "enviando"}
-              className="rounded-full bg-accent px-6 py-3 font-semibold text-white transition hover:brightness-110 disabled:opacity-60"
+              className="rounded-full bg-gradient-to-r from-accent to-blue-500 px-6 py-3 font-semibold text-white shadow-[0_10px_30px_-5px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_-5px_rgba(37,99,235,0.55)] disabled:opacity-60"
             >
               {estado === "enviando" ? "Enviando..." : "Enviar"}
             </button>
@@ -98,19 +98,19 @@ export default function ContactForm() {
 
         {/* Datos de contacto */}
         <div className="flex flex-col gap-6 md:pt-16">
-          <div>
+          <div className="animate-on-scroll">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-accent">Dirección</h3>
             <p className="mt-1 text-white/90">{NEGOCIO.direccion}</p>
           </div>
-          <div>
+          <div className="animate-on-scroll">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-accent">Teléfono</h3>
             <p className="mt-1 text-white/90">{NEGOCIO.telefono}</p>
           </div>
-          <div>
+          <div className="animate-on-scroll">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-accent">Mail</h3>
             <p className="mt-1 text-white/90">{NEGOCIO.email}</p>
           </div>
-          <div>
+          <div className="animate-on-scroll">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-accent">Horarios</h3>
             {HORARIOS.map((h) => (
               <p key={h.dia} className="mt-1 text-white/90">

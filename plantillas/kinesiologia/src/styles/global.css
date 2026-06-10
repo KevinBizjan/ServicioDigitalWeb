@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 /* Escanear los componentes compartidos de @sitio-firme/base para que Tailwind
@@ -10,4 +11,46 @@
   --color-secondary: #f0f7ff;
   --color-accent: #2563eb;
   --color-text: #1a1a1a;
+
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+/* Animaciones de entrada al hacer scroll. El estado oculto va scopeado a
+   html.js: sin JS el contenido nunca queda invisible. */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html.js .animate-on-scroll {
+  opacity: 0;
+}
+
+html.js .animate-on-scroll.visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .animate-on-scroll,
+  html.js .animate-on-scroll.visible {
+    animation: none;
+    opacity: 1;
+  }
 }
