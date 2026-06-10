@@ -10,7 +10,9 @@ export const AGENCIA = {
   whatsapp: "5493794966406",
   email: "bizjankevin@gmail.com",
   instagram: "@sitiofirme",
-  instagramUrl: "https://instagram.com/sitiofirme",
+  // Vacío = el ícono de Instagram del footer se muestra pero NO enlaza todavía.
+  // Personalizable luego: poné acá la URL real cuando exista la cuenta.
+  instagramUrl: "",
   url: "https://sitiofirme.com.ar",
 } as const;
 

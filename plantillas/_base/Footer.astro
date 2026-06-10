@@ -37,11 +37,19 @@ const anio = new Date().getFullYear();
 
     {redes.length > 0 && (
       <div class="flex gap-4">
-        {redes.map((red) => (
+        {redes.map((red) => {
+          const label = red.tipo === "facebook" ? "Facebook" : "Instagram";
+          // Enlace real solo si hay URL configurada. "#" o vacío = placeholder:
+          // se muestra el ícono pero NO navega. Personalizable luego: poné la URL
+          // real en el array `redes` de la plantilla cuando exista la cuenta.
+          const esEnlace = !!red.href && red.href !== "#";
+          return (
           <a
-            href={red.href}
-            aria-label={red.tipo === "facebook" ? "Facebook" : "Instagram"}
-            class="opacity-90 transition hover:text-accent hover:opacity-100"
+            href={esEnlace ? red.href : undefined}
+            target={esEnlace ? "_blank" : undefined}
+            rel={esEnlace ? "noopener noreferrer" : undefined}
+            aria-label={esEnlace ? label : `${label} (próximamente)`}
+            class:list={["transition", esEnlace ? "opacity-90 hover:text-accent hover:opacity-100" : "opacity-60 cursor-default"]}
           >
             {red.tipo === "facebook" ? (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -55,7 +63,8 @@ const anio = new Date().getFullYear();
               </svg>
             )}
           </a>
-        ))}
+          );
+        })}
       </div>
     )}
   </div>
